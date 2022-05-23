@@ -5,8 +5,7 @@ import './index.css'
 
 class Register extends Component{
     state={
-        registerType:"User",
-        ID:"",
+        memberid:"",
         mobile:"",
         name:"",
         password:"",
@@ -14,16 +13,20 @@ class Register extends Component{
         message:""
     }
 
-    onChangeID = (event) => {
+    onChangeMemberid = (event) => {
         this.setState({ID:event.target.value});
     }
 
-    OnChangeRegisterType = event => {
-        this.setState({registerType:event.target.value})
-    }
-
-    onChangeMobileNumber= event=>{
+    onChangeMobile= event=>{
         this.setState({mobile:event.target.value})
+        const mobile=event.target.value
+        console.log(mobile.length,mobile.length!==10)
+        if(mobile.length!==10 || isNaN(parseInt(mobile))){
+            this.setState({message:"Please enter valid mobile number."})
+        }
+        else{
+            this.setState({message:""})
+        }
     }
 
     onChangeName = event => {
@@ -39,8 +42,8 @@ class Register extends Component{
     }
 
     onClickregister = async event => {
-        const {ID,name,mobile,password,confirmPassword,registerType}=this.state
-        if(ID==="" && registerType==="User")
+        const {memberid,name,mobile,password,confirmPassword,message}=this.state
+        if(memberid==="")
         {
             this.setState({message:"Member Id can not be empty!"})
             return;
@@ -49,22 +52,26 @@ class Register extends Component{
         {
             return
         }
+        if(message!=="")
+            return;
 
-        let url="http://localhost:3005/"
-        switch(registerType){
-            case "User":url+="userregister";break;
-            case "Lab Technician":url+="labtechregister";break;
-            case "Doctor" :url+="doctorregister";break;
-        }
-        console.log(url)
-        const userDetails = {memberid:ID,mobile,name,password}
+        let url="http://idcbackend-env.eba-bmwvm95d.ap-south-1.elasticbeanstalk.com/userregister"
+        const userDetails = {memberid,mobile,name,password}
         const options = {method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(userDetails)}
 
         const res = await fetch(url,options)
         if(res.ok === true)
         {
             const {history} = this.props
-            toast.success("Registration Success!!!")
+            toast.success("Registration Success!!!",{
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            })
             history.replace("/")
         }
         else{
@@ -73,29 +80,34 @@ class Register extends Component{
         }
     }
 
-    render (){
-        const {ID,mobile, password,name,confirmPassword,message,registerType} = this.state;
-        const isNotMatch = password !== confirmPassword && confirmPassword !== "";
-        let inputElement;
-        switch (registerType){
-            case "User":inputElement = <input type="text" className="input" onChange={this.onChangeID} name="ID" id="ID" value={ID} placeholder="Member ID"/>;break;
-            case "Doctor":;
-            case "Lab Technician" : inputElement=<input type="text" className="input" onChange={this.onChangeMobileNumber} name="mobile" id="mobile" value={mobile} placeholder="Mobile Number"/>;
+    
+    componentWillMount = () => {
+        let url="http://idcbackend-env.eba-bmwvm95d.ap-south-1.elasticbeanstalk.com/nextMemberid"
+        const options = {
+            method: 'GET'
         }
+        fetch(url,options)
+        .then((res)=>res.json())
+        .then((json)=>{
+            const {memberid}=json;
+            this.setState({memberid})
+            console.log(json)
+        })
+    }
+
+    render (){
+        const {memberid,mobile, password,name,confirmPassword,message} = this.state;
+        const isNotMatch = password !== confirmPassword && confirmPassword !== "";
         return(
             <div className="register-container">
                 <h3 className="login-heading">Register</h3>
-                <select name="registerType" id="registerType" onChange={this.OnChangeRegisterType}>
-                    <option value="User">User</option>
-                    <option value="Lab Technician">Lab Technician</option>
-                    <option value="Doctor">Doctor</option>
-                </select>
-                {inputElement}
+                <input className="input" type="text" id="memberid" placeholder="memberid" value={memberid} onChange={this.onChangeMemberid} readOnly/>
                 <input className="input" type="text" id="name" placeholder="Name" onChange={this.onChangeName} value={name}/>
+                <input className="input" type="text" id="mobile" placeholder="Mobile" onChange={this.onChangeMobile} value={mobile}/>
                 <input className="input" type="password" id="password" placeholder="Password" onChange={this.onChangePassword} value={password}/>
                 <input className="input" type="password" id="confirm-password" placeholder="Confirm Password" onChange={this.onChangeConfirmPassword} value={confirmPassword}/>
                 <p className="error">{isNotMatch ? "Confirm password does not match with password!" : ""}</p>
-                <button type="button" className="submit-button bn632-hover bn20" onClick={this.onClickregister} >Register</button>
+                <button type="button" className="submit-button bn632-hover bn20 mobile-btn" onClick={this.onClickregister} >Register</button>
                 <p className="error">{message}</p>
             </div>
         )

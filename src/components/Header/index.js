@@ -1,4 +1,3 @@
-import {useState} from "react";
 import { Link } from 'react-router-dom'
 import logo from "./logo.png"
 import Cookies from "js-cookie"
@@ -33,7 +32,7 @@ const Header = props => {
     return (<nav className="nav-header">
               <div className="record-container">
                 <img src={logo} alt="logo" className='logo'/>
-                <ul className="nav-menu">
+                <ul className="nav-menu-user-header">
                   <Link className="nav-link" to="/newrecord">
                     <li>New Record</li>
                   </Link>

@@ -1,7 +1,6 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { Component } from 'react'
 import Cookies from "js-cookie"
-import { useState } from 'react'
 
 import Header from './components/Header'
 import Login from './components/Login'
@@ -28,9 +27,9 @@ class App extends Component {
       <Header onLogChange={this.onLogChange} userType={this.state.userType}/>
       <div className='all-container'>
         <Switch>
+          <ProtectedRoute path="/newrecord" component={NewRecord} />
           <Route exact path="/" component={(props)=><Login onLogChange={this.onLogChange} history={props.history}/>} />
           <Route path="/register" component={Register} />
-          <ProtectedRoute path="/newrecord" component={NewRecord} />
           <ProtectedRoute path="/showrecord" component={ShowRecord} /> 
           <ProtectedRoute path="/labtechrecord" component={LabtechRecord}/>
           <ProtectedRoute path="/showrecords" component={showRecords}/>

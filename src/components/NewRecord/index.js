@@ -81,7 +81,7 @@ class NewRecord extends Component{
     onClickSubmit = async () => {
         const {mobileNo,date,name,BP,FBS,PPBS,RBS,HbA1C,Urea,Creatinine,Microalbuminuria,Complaints,file,OtherSignificantNotes} = this.state
         const medicalDetials = {mobileNo,date,name,BP,FBS,PPBS,RBS,HbA1C,Urea,Creatinine,Microalbuminuria,Complaints,OtherSignificantNotes};
-        const url = 'http://localhost:3005/newuserrecord';
+        const url = 'http://idcbackend-env.eba-bmwvm95d.ap-south-1.elasticbeanstalk.com/newuserrecord';
         const options = {
             method: 'POST',
             headers:{"Content-Type":"application/json","Authorization":"BEARER "+Cookies.get("jwt_token")},
@@ -89,10 +89,26 @@ class NewRecord extends Component{
         }
         const response = await fetch(url, options)
         if (response.ok === true) {
-            toast.success("Data added successfully!!!");
+            toast.success("Data added successfully!!!",{
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                });
         }
         else{
-            toast.error("Failed to add data!");
+            toast.error("Failed to add data!",{
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
         }
     }
 
@@ -101,8 +117,6 @@ class NewRecord extends Component{
         return(
             <div className="newrecord-container">
                 <h2>Please enter your readings</h2>
-                <label className="label" htmlFor="id" >Name</label>
-                <input className="input" type="text" id="name" placeholder="Name" onChange={this.onChangeName} value={name}/>
                 <label className="label" htmlFor="mobile" >Mobile No</label>
                 <input className="input" type="text" id="mobile" placeholder="Mobile No" onChange={this.onChangeMobileNo} value={mobileNo}/>
                 <label className="label" htmlFor="date">Date</label>

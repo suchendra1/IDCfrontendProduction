@@ -1,5 +1,6 @@
 .record-container{
     display:flex;
+    width:100vw
 }
 
 .nav-menu{
@@ -16,6 +17,23 @@
     width:20vw;
     justify-content:space-around;
     align-self:center;
+}
+
+.nav-menu-user-header{
+    display:flex;
+    margin-left:auto;
+    width:30vw;
+    justify-content:space-around;
+    align-self:center;
+}
+
+@media screen and (max-width:500px){
+    .nav-menu-login-header{
+        width:50vw;
+    }
+    .nav-menu-user-header{
+        width:60vw;
+    }
 }
 
 ul {

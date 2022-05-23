@@ -85,7 +85,7 @@ class LabtechRecord extends Component{
 
     checkValidUser = async event => {
         const memberid = event.target.value;
-        const url = "http://localhost:3005/checkvaliduser";
+        const url = "https://us-central1-testing-f19ee.cloudfunctions.net/app/checkvaliduser";
         const options = {
             method: 'POST',
             headers:{"Content-Type":"application/json","Authorization":"BEARER "+Cookies.get("jwt_token")},
@@ -576,8 +576,9 @@ class LabtechRecord extends Component{
         lipidProfileSection,
         liverFunctionSection
         } = this.state;
-        const medicalDetials = {memberid,
-            date,
+        const medicalDetials = {
+        memberid,
+        date,
         hemoglobin,
         PCV,
         RCB,
@@ -648,7 +649,8 @@ class LabtechRecord extends Component{
         lipidProfileSection,
         liverFunctionSection
         };
-        const url = 'http://localhost:3005/newlabtechrecord'
+        console.log(medicalDetials)
+        const url = 'http://idcbackend-env.eba-bmwvm95d.ap-south-1.elasticbeanstalk.com/newlabtechrecord'
         const options = {
             method: 'POST',
             headers:{"Content-Type":"application/json","Authorization":"BEARER "+Cookies.get("jwt_token")},
@@ -658,10 +660,26 @@ class LabtechRecord extends Component{
         
         const data = await response.json()
         if (response.ok === true) {
-            toast("Data added successfully!!!")
+            toast("Data added successfully!!!",{
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                })
         }
         else{
-            toast("Failed to add data!")
+            toast("Failed to add data!",{
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                })
         }
     }
 
@@ -739,7 +757,6 @@ class LabtechRecord extends Component{
             tyroidSection,
             lipidProfileSection,
             liverFunctionSection} = this.state;
-        console.log(memberidmessage,memberidmessageclass)
         return (
             <div className="lab-tech-container">
                 <div className="patient-detail">
