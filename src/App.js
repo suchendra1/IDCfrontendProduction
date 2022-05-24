@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { Component } from 'react'
+import {Helmet} from "react-helmet"
 import Cookies from "js-cookie"
 
 import Header from './components/Header'
@@ -23,6 +24,10 @@ class App extends Component {
   }
   render(){
   return <div className="container">
+    <Helmet>
+        <meta charSet="utf-8" />
+        <title>SUITS</title>
+    </Helmet>
     <BrowserRouter >
       <Header onLogChange={this.onLogChange} userType={this.state.userType}/>
       <div className='all-container'>
