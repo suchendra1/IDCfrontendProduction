@@ -23,7 +23,7 @@ class showRecords extends Component{
 
     onClickGetDetails = async () =>{
         const {patientMemberID} = this.state;
-        const url = `http://idcbackend-env.eba-bmwvm95d.ap-south-1.elasticbeanstalk.com/showuserrecord/${patientMemberID}`
+        const url = `https://idcbackend-env.eba-bmwvm95d.ap-south-1.elasticbeanstalk.com/showuserrecord/${patientMemberID}`
         const options = {
         method: 'GET',
         headers:{"Content-Type":"application/json",

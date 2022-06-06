@@ -650,7 +650,7 @@ class LabtechRecord extends Component{
         liverFunctionSection
         };
         console.log(medicalDetials)
-        const url = 'http://idcbackend-env.eba-bmwvm95d.ap-south-1.elasticbeanstalk.com/newlabtechrecord'
+        const url = 'https://idcbackend-env.eba-bmwvm95d.ap-south-1.elasticbeanstalk.com/newlabtechrecord'
         const options = {
             method: 'POST',
             headers:{"Content-Type":"application/json","Authorization":"BEARER "+Cookies.get("jwt_token")},
