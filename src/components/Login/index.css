@@ -1,0 +1,103 @@
+.login-container{
+    display:flex;
+    flex-direction:column;
+    align-self:center;
+    width:50vw;
+    max-width: 500px;
+    margin-top:70px;
+}
+
+.login-heading{
+  color:#007196;
+  font-size:30px;
+  font-family: "Roboto";
+}
+
+.label{
+    margin-top:10px;
+    align-self:flex-start;
+}
+
+.input{
+    height:4vh;
+    align-self:flex-start;
+    width: 100%;
+    border-style: none none solid none;
+    margin-top:20px;
+}
+
+.input:focus{
+    border-color: #007196;
+}
+
+.submit-button{
+    margin-top:20px;
+    background-color:#007196;
+    align-self:flex-start;
+    border-radius:13px;
+    width:100%;
+    height:40px;
+    color: white;
+    border:none;
+    margin-top:40px;
+    align-self:center;
+}
+
+.bn632-hover {
+    width: 100%;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    height: 55px;
+    text-align:center;
+    border: none;
+    background-size: 300% 100%;
+    border-radius: 50px;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+    width:300px;
+    align-self:center;
+  }
+  
+  .bn632-hover:hover {
+    background-position: 100% 0;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+    width:300px;
+    align-self:center;
+  }
+  
+  .bn632-hover:focus {
+    outline: none;
+    width:300px;
+    align-self:center;
+  }
+  
+  .bn632-hover.bn20 {
+    background-image: linear-gradient(
+      to right,
+      #21d3fd,
+      #6780fe,
+      #914efe,
+      #b523ff
+    );
+    box-shadow: 0 4px 15px 0 #6780fe;
+    width:300px;
+    align-self:center;
+  }
+
+.error{
+  justify-content: center;
+  text-align:center;
+}
+
+@media screen and (max-width:500px){
+  .mobile-btn{
+    width:40vw !important;
+  }
+}
