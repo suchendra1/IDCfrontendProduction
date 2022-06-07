@@ -28,7 +28,7 @@ class ShowRecord extends Component{
     }
 
     componentDidMount (){
-        const url = 'https://idcbackend-env.eba-bmwvm95d.ap-south-1.elasticbeanstalk.com/showuserrecord'
+        const url = 'https://idcbackend-env-2.eba-bmwvm95d.ap-south-1.elasticbeanstalk.com/showuserrecord'
         const options = {
         method: 'GET',
         headers:{"Content-Type":"application/json",
@@ -52,7 +52,7 @@ class ShowRecord extends Component{
             }
         })
 
-        const url1 = 'https://idcbackend-env.eba-bmwvm95d.ap-south-1.elasticbeanstalk.com/getusermemberid';
+        const url1 = 'https://idcbackend-env-2.eba-bmwvm95d.ap-south-1.elasticbeanstalk.com/getusermemberid';
         const options1 = {
         method: 'POST',
         headers:{"Content-Type":"application/json",

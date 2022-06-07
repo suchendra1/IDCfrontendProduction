@@ -85,7 +85,7 @@ class LabtechRecord extends Component{
 
     checkValidUser = async event => {
         const memberid = event.target.value;
-        const url = "https://us-central1-testing-f19ee.cloudfunctions.net/app/checkvaliduser";
+        const url = "https://idcbackend-env-2.eba-bmwvm95d.ap-south-1.elasticbeanstalk.com/checkvaliduser";
         const options = {
             method: 'POST',
             headers:{"Content-Type":"application/json","Authorization":"BEARER "+Cookies.get("jwt_token")},
@@ -650,7 +650,7 @@ class LabtechRecord extends Component{
         liverFunctionSection
         };
         console.log(medicalDetials)
-        const url = 'https://idcbackend-env.eba-bmwvm95d.ap-south-1.elasticbeanstalk.com/newlabtechrecord'
+        const url = 'https://idcbackend-env-2.eba-bmwvm95d.ap-south-1.elasticbeanstalk.com/newlabtechrecord'
         const options = {
             method: 'POST',
             headers:{"Content-Type":"application/json","Authorization":"BEARER "+Cookies.get("jwt_token")},

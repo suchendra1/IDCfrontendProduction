@@ -55,7 +55,7 @@ class Register extends Component{
         if(message!=="")
             return;
 
-        let url="https://idcbackend-env.eba-bmwvm95d.ap-south-1.elasticbeanstalk.com/userregister"
+        let url="https://idcbackend-env-2.eba-bmwvm95d.ap-south-1.elasticbeanstalk.com/userregister"
         const userDetails = {memberid,mobile,name,password}
         const options = {method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(userDetails)}
 
@@ -82,7 +82,7 @@ class Register extends Component{
 
     
     componentWillMount = () => {
-        let url="https://idcbackend-env.eba-bmwvm95d.ap-south-1.elasticbeanstalk.com/nextMemberid"
+        let url="https://idcbackend-env-2.eba-bmwvm95d.ap-south-1.elasticbeanstalk.com/nextMemberid"
         const options = {
             method: 'GET'
         }

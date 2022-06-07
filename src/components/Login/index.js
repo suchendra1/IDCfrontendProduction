@@ -6,8 +6,6 @@ import './index.css'
 import './index.scss'
 import 'react-toastify/dist/ReactToastify.css';
 
-toast.configure()
-
 class Login extends Component{
     state={
         ID:"",
@@ -66,7 +64,7 @@ class Login extends Component{
             case "Lab Technician":userDetails={mobile,password};break;
             case "Doctor":userDetails={mobile,password};break;
         }
-        let url = 'https://idcbackend-env.eba-bmwvm95d.ap-south-1.elasticbeanstalk.com/'
+        let url = 'https://idcbackend-env-2.eba-bmwvm95d.ap-south-1.elasticbeanstalk.com/'
         switch(userType){
             case "User" : url+="userlogin";break;
             case "Lab Technician" : url+="techlogin";break;
