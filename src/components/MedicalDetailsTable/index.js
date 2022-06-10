@@ -540,6 +540,16 @@ export default (props) =>{
                         </tr>
                         <tr>
                             <th>
+                                Pus Cells
+                            </th>
+                            {medicalDetails.map(eachRecord=>
+                                <td>
+                                    {eachRecord["epithelialCells"]}
+                                </td>
+                            )}
+                        </tr>
+                        <tr>
+                            <th>
                                 RBCs
                             </th>
                             {medicalDetails.map(eachRecord=>
