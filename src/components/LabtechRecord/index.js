@@ -639,15 +639,6 @@ class LabtechRecord extends Component{
         others, 
         bileSalt,
         bilePigments,
-        hemogramSection,
-        leucocyteSection,
-        bloodsugarSection,
-        ECGSection,
-        urineSection,
-        kidneySection,
-        tyroidSection,
-        lipidProfileSection,
-        liverFunctionSection
         };
         console.log(medicalDetials)
         const url = 'https://idcbackend-env-2.eba-bmwvm95d.ap-south-1.elasticbeanstalk.com/newlabtechrecord'

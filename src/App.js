@@ -2,7 +2,10 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { Component } from 'react'
 import Cookies from "js-cookie"
 import {Helmet} from "react-helmet";
+import {toast} from 'react-toastify';
 
+
+import 'react-toastify/dist/ReactToastify.css';
 import Header from './components/Header'
 import Login from './components/Login'
 import Register from './components/Register'
@@ -14,6 +17,9 @@ import LabtechRecord from './components/LabtechRecord'
 import showRecords from './components/showRecords'
 
 import './App.css'
+
+toast.configure();
+
 
 class App extends Component {
   state={

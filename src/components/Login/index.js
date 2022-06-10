@@ -1,10 +1,12 @@
 import {Component} from "react"
 import Cookies from 'js-cookie'
-import {toast} from 'react-toastify';
+import {toast,ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import './index.css'
 import './index.scss'
-import 'react-toastify/dist/ReactToastify.css';
+
+toast.configure()
 
 class Login extends Component{
     state={
@@ -117,6 +119,7 @@ class Login extends Component{
                 <input type="password" className="input" onChange={this.onChangePassword} name="password" id="password" value={password} placeholder="Password"/>
                 <button type="button" className="submit-button bn632-hover bn20 mobile-btn" onClick={this.onClickLogin}>Login</button>
                 <p className="error">{error}</p>
+                <ToastContainer/>
             </div>
         )
     }
