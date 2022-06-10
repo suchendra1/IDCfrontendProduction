@@ -7,11 +7,11 @@ export default (props) =>{
                     <tbody>
                         <tr>
                             <th>
-                                Date
+                                Date (YYYY/MM/DD)
                             </th>
                             {medicalDetails.map(eachRecord=>
                                 <td>
-                                    {eachRecord["date"]}
+                                    {eachRecord["date"].split("T")[0]}
                                 </td>
                             )}
                         </tr>
