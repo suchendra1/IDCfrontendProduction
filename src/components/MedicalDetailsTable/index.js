@@ -584,7 +584,7 @@ export default (props) =>{
                             </th>
                             {medicalDetails.map(eachRecord=>
                                 <td>
-                                    {eachRecord["bileSalts"]}
+                                    {eachRecord["bilesalts"]}
                                 </td>
                             )}
                         </tr>
