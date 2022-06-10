@@ -540,7 +540,7 @@ export default (props) =>{
                         </tr>
                         <tr>
                             <th>
-                                Pus Cells
+                                Epithelial Cells
                             </th>
                             {medicalDetails.map(eachRecord=>
                                 <td>
