@@ -1,7 +1,7 @@
 export default (props) =>{
     const {medicalDetails,memberid}=props
     console.log(medicalDetails)
-    if(medicalDetails.length===1)
+    if(medicalDetails["data"]=== 'No data to show')
         return(<h3>No data!!!</h3>)
     return(
         <div className="medical-details-table-containener">
