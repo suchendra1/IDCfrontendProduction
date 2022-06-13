@@ -18,7 +18,7 @@ class ShowRecord extends Component{
         let keys=[];
         for (var k in medicalDetails[0])
             keys.push(k)
-        const tableColumns=["Date"].concat(medicalDetails.map(eachDetail=>eachDetail.date));
+        const tableColumns=["Date"].concat(medicalDetails.map(eachDetail=>eachDetail.date.split("T")[0]));
         const tableRows = keys.map(eachKey=>
             {return [eachKey].concat(medicalDetails.map(eachRecord=>{return eachRecord[eachKey]}))});
         var doc = new jsPDF()
@@ -89,7 +89,7 @@ class ShowRecord extends Component{
                             </th>
                             {medicalDetails.map(eachRecord=>
                                 <td>
-                                    {eachRecord["date"]}
+                                    {eachRecord["date"].split("T")[0]}
                                 </td>
                             )}
                         </tr>
@@ -662,7 +662,7 @@ class ShowRecord extends Component{
                             </th>
                             {medicalDetails.map(eachRecord=>
                                 <td>
-                                    {eachRecord["bileSalts"]}
+                                    {eachRecord["bilesalts"]}
                                 </td>
                             )}
                         </tr>
