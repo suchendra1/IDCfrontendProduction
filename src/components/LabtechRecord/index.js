@@ -69,7 +69,7 @@ class LabtechRecord extends Component{
         casts:"", 
         crystals:"",
         others:"", 
-        bileSalt:"",
+        bileSalts:"",
         bilePigments:"",
         hemogramSection:true,
         leucocyteSection:false,
@@ -345,8 +345,8 @@ class LabtechRecord extends Component{
         this.setState({others:event.target.value})
     }
 
-    onChangeBileSalt = event => {
-        this.setState({bileSalt:event.target.value})
+    onChangeBileSalts = event => {
+        this.setState({bileSalts:event.target.value})
     }
 
     onChangeBilePigments = event => {
@@ -564,7 +564,7 @@ class LabtechRecord extends Component{
         casts, 
         crystals,
         others, 
-        bileSalt,
+        bileSalts,
         bilePigments,
         hemogramSection,
         leucocyteSection,
@@ -637,7 +637,7 @@ class LabtechRecord extends Component{
         casts, 
         crystals,
         others, 
-        bileSalt,
+        bileSalts,
         bilePigments,
         };
         console.log(medicalDetials)
@@ -737,7 +737,7 @@ class LabtechRecord extends Component{
             casts, 
             crystals,
             others, 
-            bileSalt,
+            bileSalts,
             bilePigments,
             hemogramSection,
             leucocyteSection,
@@ -839,7 +839,7 @@ class LabtechRecord extends Component{
                     <input type="text" className=" lab-tech-input" placeholder="Casts" onChange={this.onChangeCasts} value={casts}/>
                     <input type="text" className=" lab-tech-input" placeholder="Crystals" onChange={this.onChangeCrystals} value={crystals}/>
                     <input type="text" className=" lab-tech-input" placeholder="Others" onChange={this.onChangeOthers} value={others}/>
-                    <input type="text" className=" lab-tech-input" placeholder="Bile Salts" onChange={this.onChangeBileSalt} value={bileSalt}/>
+                    <input type="text" className=" lab-tech-input" placeholder="Bile Salts" onChange={this.onChangeBileSalts} value={bileSalts}/>
                     <input type="text" className=" lab-tech-input" placeholder="Bile Pigments" onChange={this.onChangeBilePigments} value={bilePigments}/>
                 </div>}
                 <button type="submit" onClick={this.onClickSubmit} className="submit-btn">Submit</button>
